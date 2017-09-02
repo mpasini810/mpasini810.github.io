@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:site_name" content="mayapasini.com" />
+        <title>Maya Pasini</title>
+        <!-- Latest compiled and minified CSS -->
+
+<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+				
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700|Work+Sans:400,700" rel="stylesheet">
+</head>
+
+<body>
+	
+
+	
+	<body>
+  <header class="header">
+  <div class="container">
+    <a href="http://www.mayapasini.com/#portfolio" class="back-link"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+Back to portfolio</a>
+  </div>
+</header>
+<section class="project-page">
+  <div class="container">
+  <div class="row">
+    <div class="col-md">
+      <h2 class="">Cristy Yeung, Skincare Expert</h2>
+    </div>
+    </div>
+     <!-- /.row -->
+
+<div class="row">
+    <div class="col-md">
+      <p>front-end development | back-end development | Bootstrap | jQuery | Github | Heroku 
+<p>
+    </div>
+    </div>
+     <!-- /.row -->
+    <div class="row">
+    <div class="col-md portfolio-item">
+  
+      
+      
+    </div>
+    </div>
+     <!-- /.row -->
+    <div class="row">
+          <div class="col-md">
+         <p><a href="https://skincare-auntie.herokuapp.com/index.php" target ="blank">Skincare Auntie</a><br>built using Bootstrap v3; hosted via Github and Heroku
+        </p>
+            <h3>Overview</h3>
+            <p>As part of my Web Programming certificate program at Hunter College, for my final I was required to build a website from scratch. Since I am interested in blogging platforms and was an avid blogger myself in the early 2000s I elected to create a blogging platform for this assignment. This coincided with Cristy Yeung (a friend and fellow blogger) looking to turn her popular skincare Google document into a website so she could reach more people and spread her knowledge of all things epidermal. I built this site using PHP and the Bootstrap framework to showcase my programming knowledge and honor my friend’s extensive work.
+            </p>
+      </div>
+      </div>
+      
+      <!-- /.row -->
+    <div class="row">
+      <div class="col-md">
+        <h3>Objectives</h3>
+        
+        <ul>
+          <li>Design that reflects Cristy’s knowledge and personality </li>
+          <li>Blog is able to locate any blog entry by id </li>
+          <li>Contact form for user inquiries and automated email response</li>
+          <li>Posts display comments by users </li>
+          <li>MySQL database for storing content and login information </li>
+        </ul>
+        <h3>Process</h3>
+      
+        <p><b>Interview:</b></p>
+          
+          <p>Cristy wanted to adapt her Google doc into blog form so we already had a lot of content to work with. She requested a cute, playful look using a color scheme of pale lavenders and greys. For her navigation bar, she wanted an eye-catching logo in the main navigation of the page (graphic design credit goes to our friend Eric Zhang) and an about me section to state her mission for Skincare Auntie. While Cristy did not bring up a contact page or social media links, she agreed that those would be helpful and necessary down the line as the blog gains viewership.</p>
+
+        <p><b>Strategy:</b></p>
+        
+        <ul>
+          <li>First and foremost, I chose a Bootstrap template to ensure the blog is responsive across all platforms. I chose this one (will add link) because I felt it was the most navigable and would look best after adding the logo. After setting up the template I was able to add text from Cristy’s document. </li>
+          <li>Since Cristy (or any contributor) would want to update the blog, I created login.php which accepts an email address and password using the PHP POST method. If login is successful, the user is redirected to the “create.php” page where they can make new posts. If the login is unsuccessful, the user receives an error message. </li>
+          <li>In order to store the login information and post contents I created a database using MySQL. I wrote queries to allow PHP to access informations from the databases. This allows each new post to have a title, body, timestamp, and id so that readers can look up posts. The login information is also securely stored this way. </li>
+          <li>Cristy wanted to engage with readers so I created a contact.php for user write-ins. I also used thee POST method here. When a user writes in and proves they are not a robot, SKincare Auntie sends an automated response letting readers know their questions will be answered shortly. Comments on the posts were created by the POST method as well. </li>
+        </ul>
+        
+
+        <p><b>Training:</b></p>
+        
+        <p>Since Cristy was already well-versed in HTML, I showed her how to commit changes on to GitHub. Then, I showed her the inner workings of the database that stores the posts on SequelPro and how to connect to the server on MAMP. Finally, I walked her through the steps to obtain a domain on domains to make Skincare Auntie truly hers.</p>
+      
+      </div>
+    </div>
+     <div class="row">
+      <div class="col-md">
+        <h3>Client testimonial</h3>
+      </div>
+    </div>
+      <!-- /.row -->
+     <div class="row">
+      <div class="col-md">
+        <p><i>Coming soon!</i></p>
+      </div>
+    </div>
+      <!-- /.row -->
+  </div>
+   </div>
+</section>
+	    <footer>
+  <div class="container footer">
+       <div class="row text-center">
+         <div class="col">
+         <p class="bottom-nav"><a href="#">Back to top</a></p>
+         </div>
+    </div>
+    <div class="row text-center">
+      <div class="col">
+      <p class="small credits">Coded by Maya Pasini</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="slick/slick.min.js"></script>
+
+<script>$(document).ready(function(){
+
+$('main').click(function(){
+    $('html, body').animate({
+        scrollTop: $( $(this).attr('href') ).offset().top
+    }, 500);
+    return false;
+});
+        
+$('.testimonials').slick({});
+});
+</script>
+</body>
+</html>
