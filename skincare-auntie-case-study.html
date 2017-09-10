@@ -31,7 +31,7 @@
   <div class="container">
   <div class="row">
     <div class="col-md">
-      <h2 class="">Cristy Yeung, Skincare Expert</h2>
+      <h2 style="padding-top: 20px; ">Cristy Yeung, Skincare Expert</h2>
     </div>
     </div>
      <!-- /.row -->
@@ -53,8 +53,9 @@
      <!-- /.row -->
     <div class="row">
           <div class="col-md">
-         <p><a href="https://skincare-auntie.herokuapp.com/index.php" target ="blank">Skincare Auntie</a><br>Built using Bootstrap v3.3; hosted via Github and Heroku
-        </p>
+         <p>Link to website: <a href="https://skincare-auntie.herokuapp.com/index.php" target ="blank">Skincare Auntie</a></p>
+          <p>Built using Bootstrap v3.3; hosted via Github and Heroku</p>
+            
             <h3>Overview</h3>
             <p>As part of my Web Programming certificate program at Hunter College, for my final I was required to build a website from scratch. Since I am interested in blogging platforms and was an avid blogger myself in the early 2000s I elected to create a blogging platform for this assignment. This coincided with Cristy Yeung (a friend and fellow blogger) looking to turn her popular skincare Google document into a website so she could reach more people and spread her knowledge of all things epidermal. I built this site using PHP and the Bootstrap framework to showcase my programming knowledge and honor my friend’s extensive work.
             </p>
@@ -73,8 +74,7 @@
           <li>Posts display comments by users </li>
           <li>MySQL database for storing content and login information </li>
         </ul>
-        <h3>Process</h3>
-      
+          <h3>Process</h3>      
         <p><b>Interview:</b></p>
           
           <p>Cristy wanted to adapt her Google doc into blog form so we already had a lot of content to work with. She requested a cute, playful look using a color scheme of pale lavenders and greys. For her navigation bar, she wanted an eye-catching logo in the main navigation of the page (graphic design credit goes to our friend Eric Zhang) and an about me section to state her mission for Skincare Auntie. While Cristy did not bring up a contact page or social media links, she agreed that those would be helpful and necessary down the line as the blog gains viewership.</p>
@@ -82,10 +82,15 @@
         <p><b>Strategy:</b></p>
         
         <ul>
-          <li>First and foremost, I chose a Bootstrap template to ensure the blog is responsive across all platforms. I chose this one (will add link) because I felt it was the most navigable and would look best after adding the logo. After setting up the template I was able to add text from Cristy’s document. </li>
+          <li>First and foremost, I chose a Bootstrap template to ensure the blog is responsive across all platforms. I chose <a href="http://getbootstrap.com/docs/4.0/examples/blog/">this one</a> because I felt it was the most navigable and would look best after adding the logo. After setting up the template I was able to add text from Cristy’s document.Then I chose the color template for Cristy's page. I used pale lavenders and greyish blue hues as you can see below. </li>
+          <li style="list-style: none">
+            <div class="text-center">
+              <img style="padding-top: 20px;" src="images/color-scheme.png">
+            </div>
+          </li>
           <li>Since Cristy (or any contributor) would want to update the blog, I created login.php which accepts an email address and password using the PHP POST method. If login is successful, the user is redirected to the “create.php” page where they can make new posts. If the login is unsuccessful, the user receives an error message. </li>
           <li>In order to store the login information and post contents I created a database using MySQL. I wrote queries to allow PHP to access informations from the databases. This allows each new post to have a title, body, timestamp, and id so that readers can look up posts. The login information is also securely stored this way. </li>
-          <li>Cristy wanted to engage with readers so I created a contact.php for user write-ins. I also used thee POST method here. When a user writes in and proves they are not a robot, SKincare Auntie sends an automated response letting readers know their questions will be answered shortly. Comments on the posts were created by the POST method as well. </li>
+          <li>Cristy wanted to engage with readers so I created a contact.php for user write-ins. I also used thee POST method here. When a user writes in and proves they are not a robot, Skincare Auntie sends an automated response letting readers know their questions will be answered shortly. Comments on the posts were created by the POST method as well. </li>
         </ul>
         
 
@@ -101,13 +106,12 @@
       </div>
     </div>
       <!-- /.row -->
-     <div class="row">
-      <div class="col-md">
-        <p><i>Coming soon!</i></p>
-      </div>
+     <div class="text-center">
+      <img src="images/cristy-face.png"> 
     </div>
-      <!-- /.row -->
-  </div>
+    <div class="row text-center">
+      <p style="padding-top: 20px;"><i>"Maya's work on Skincare Auntie is simple, clear, and pleasing to the eye. Intended for people of all ages and levels of skincare knowledge, but primarily for those in the author's age group and who have an existing interest in skincare, the minimalistic layout makes it easy for visitors of all kinds to browse the website and find the information they are seeking. The top navigation is straightforward and presents the different sections of information in a logical order that make sense even if read out of sequence, and the archive links on the side make it easy for visitors to view older posts. The website's color scheme and layout are clean and modern without being too austere, and the fun header logo signals both the author's youth and intended audience while appealing to a broader crowd. The font is easily legible, and all links and post displays are fully functional. The website's outgoing links are easily accessible as well. Overall, Skincare Auntie is a pleasure to use and utilizes the elements of good web design that I appreciate in many of my favorite websites."</i><cite><b> -Cristy Yeung</b></cite></p>
+    </div>
    </div>
 </section>
 	    <footer>
