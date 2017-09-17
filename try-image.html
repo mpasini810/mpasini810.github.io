@@ -1,0 +1,86 @@
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta property="og:site_name" content="mayapasini.com" />
+      <title>Maya Pasini</title>
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+      <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" />
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+      <link rel="stylesheet" href="style.css">
+      <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700|Work+Sans:400,700" rel="stylesheet">
+  </head>	
+
+  
+  <body>
+    <div class="container">
+      <form onsubmit="changeImage(); return false;">
+      <div class="form-group">
+        <label for="url">1. Enter your URL</label>
+        <input id="url" type="url" class="form-control" id="url" placeholder="URL" value="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
+      </div>
+      <div class="form-group">
+        <label for="rotate">2. Rotate your image (optional) </label>
+        <input type="radio" name="rotate" value="0"> No rotation
+        <input type="radio" name="rotate" value="90" checked="checked"> Rotate 90°
+        <input type="radio" name="rotate" value="180"> Rotate 180°
+        <input type="radio" name="rotate" value="270"> Rotate 270°
+      </div>
+      <div class="form-group">
+        <label for="blur">3. Blur your image (optional)</label>
+          <select id="blur">
+            <option value="0">0</option>
+            <option value=".3">.3</option>
+            <option value="3" selected="selected">3</option>
+            <option value="30">30</option>
+            <option value="300">300</option>
+            <option value="1000">1000</option>
+          </select>
+      </div>
+      <div class="form-group">
+        <label for="resize">4. Resize your image</label>
+        Height: <input id="resizeHeight"  type="text" size="2" value="100"> x
+        Width: <input id="resizeWidth"   type="text" size="2" value="100"> px 
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      
+      <img id="theImage" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
+    </div>
+    
+    
+    
+    <script>
+      function changeImage(e) {
+        var url = $('#url').val();
+        var rotate = $('input[name=rotate]:checked').val();
+        var blur = $("#blur option:selected").val();
+        var resizeHeight = $('#resizeHeight').val();
+        var resizeWidth = $('#resizeWidth').val();
+        
+        var params = {
+          url: url,
+          rotate: rotate,
+          blur: blur,
+          resizeHeight: resizeHeight,
+          resizeWidth: resizeWidth
+        }
+        
+        var query = $.param(params)
+        
+        var manipulatedUrl = "https://lm318laof5.execute-api.us-east-1.amazonaws.com/prod/imagemanipulation?" + query  
+        
+        $("#theImage").attr("src", manipulatedUrl); 
+        
+        console.log(url, rotate, blur, resizeHeight, resizeWidth);
+      }
+    </script>
+  </body>
+
+
+</html>

@@ -1,134 +1,113 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta property="og:site_name" content="mayapasini.com" />
-        <title>Maya Pasini</title>
-        <!-- Latest compiled and minified CSS -->
-
-<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-				
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
-
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700|Work+Sans:400,700" rel="stylesheet">
-</head>	
-	
-	<body>
-  <header class="header">
-  <div class="container">
-    <a href="index.html#portfolio" class="back-link"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Back to portfolio</a>
-  </div>
-</header>
-<section class="project-page">
-  <div class="container">
-  <div class="row">
-    <div class="col-md">
-      <h2 style="padding-top: 20px; ">Highly Scaleable Image Manipulation API</h2>
-    </div>
-    </div>
-     <!-- /.row -->
-
-<div class="row">
-    <div class="col-md">
-      <p>back-end development | JavaScript | Sharp npm module | Github | AWS Lambda 
-<p>
-    </div>
-    </div>
-     <!-- /.row -->
-    <div class="row">
-    <div class="col-md portfolio-item">
-  
-      
-      
-    </div>
-    </div>
-     <!-- /.row -->
-    <div class="row">
-          <div class="col-md">
-         <p>Link to GitHub repository: <a href="https://skincare-auntie.herokuapp.com/index.php" target ="blank">imageResizer</a></p>
-          <p>Built in Node.js; deployed on AWS Lambda via Amazon API Gateway</p>
-            
-            <h3>Overview</h3>
-            <p>While putting together my web development projects I kept running into issues regarding my images. Sometimes an image would  be the incorrect dimensions, needs cropping, or could use rotation to fit better on page. This created a need for me to create an image resizer that would load images quickly exactly as I want them to look. 
-            </p>
-      </div>
-      </div>
-      
-      <!-- /.row -->
-    <div class="row">
-      <div class="col-md">
-        <h3>Objectives</h3>
-        
-        <p>As I began the building process, I made this list of objectives to keep me on track:</p>
-        
-        <ul>
-          <li>Needs to support image sizes from very large monitors to small mobile devices</li>
-          <li>Performs mirroring for AB testing user conversion rates</li>
-          <li>Since web traffic can spike very quickly, <b>we need scaleable infrastructure to support on demand image processing</b></li>
-          <li>Need a caching layer for duplicate image requests</li>
-        </ul>
-          <h3>Process</h3>              
-        <p>Before any actual coding took place, I registered with AWS Lambda <a href="https://signin.aws.amazon.com/signin?client_id=signup&redirect_uri=https%3A%2F%2Fportal.aws.amazon.com%2Fbilling%2Fsignup%2Fresume&page=resolve">here</a>! Once my registration was locked and loaded I created my AWS lambda zip with `sharp` and `request` npm packages. <a href="http://sharp.dimens.io/en/stable/install/#aws-lambda">This</a> link will help you in the steps in getting set up! </p>
-                
-        <p><b>Writing the code:</b></p>
-        
-        <ul>
-          <li>First stop, I chose an image library that works in with one of lambda's supported languages! I chose <a href="https://github.com/lovell/sharp">Sharp</a> as it was the easiest to navigate and it was widely used and celebrated on GitHub</li>
-          <li>Then, I chose a url downloading library to simplify fetching images. I used <a href="https://github.com/request/request">Request</a> for the same reason as Sharp-easily to follow, versatile, well-regarded.</li>
-          <li>Then, using Sharp I created an image transformation pipeline that will perform the transformation specified by the url parameters</li>
-          <li>Finally, I returned the base 64 encoded image! Right now, my image resizer only can make .png files but I'll expand to more formats soon!</li>
-        </ul>
-        
-          <p><b>Deploying to Lambda gateway:</b></p>
-        
-        <ul>
-          <li>I assigned an <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">AWS IAM </a>role that has cloudwatch enabled. <a href="https://aws.amazon.com/cloudwatch/">CloudWatch</a> is useful because it can automatically react to changes (so, changes to your image in this case) and monitor your log files.</li>
-          <li>Then, I increased the memory limit to speed up API the response. More memory in this case means faster conversions.</li>
-        </ul>
-        
-          <p><b>Configuring API gateway</b></p>
-        
-        <ul>
-          <li>I converted the URL parameters to event.query parameters for the Integration Reqeust. I used Kenn Brodhagen's wonderful tutorial <a href="https://kennbrodhagen.net/2015/12/06/how-to-create-a-request-object-for-your-lambda-event-from-api-gateway/">here</a>. His step by step process was a life-saver in getting this set up. </li>
-          <li>The response header needs to be set to image/png inside the API Gateway.</li>
-          <li>The transformed images must be encoded in base64 to comply with Lambda's text only resposne.</li>
-          <li>API caching was enabled since all requests to the api should have deterministic responses.</li>
-        </ul>
-
-        <p><b>Challenges:</b></p>
-        
-        <p>AWS Lambda doesn't have a good way for rapidly testing your code locally. It takes several minutes to rebuild, redeploy, and run tests that could all fail because of syntax error. The simplest way to test your code is by setting up a simple Express server is a quick way to debug logical coding. However, This doesn't emulate many of the API Gateway configurations though which can be quite confusing the first time you use them. There are some frameworks that are attempting to bridge the gap between local development and a full serverless deployment. I will be evaluating them for any furture serverless projects.</p>
-      
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md"></div>
-        <h3><b>Results</b></h3>
-        <p>Now I have a fast-loading, effective image manipulator that resizes, blurs, rotates, and crops .png files. <a href="try-image.html">Try here</a> to have a look yourself! </p>
-    </div>
-   </div>
-</section>
-	    <footer>
-  <div class="container footer">
-       <div class="row text-center">
-         <div class="col">
-         <p class="bottom-nav"><a href="#">Back to top</a></p>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta property="og:site_name" content="mayapasini.com" />
+      <title>Maya Pasini</title>
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+      <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" />
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+      <link rel="stylesheet" href="style.css">
+      <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700|Work+Sans:400,700" rel="stylesheet">
+   </head>
+   <body>
+      <header class="header">
+         <div class="container">
+            <a href="index.html#portfolio" class="back-link"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Back to portfolio</a>
          </div>
-    </div>
-    <div class="row text-center">
-      <div class="col">
-      <p class="small credits">Coded by Maya Pasini</p>
-      </div>
-    </div>
-  </div>
-</footer>
-</body>
+      </header>
+      <section class="project-page">
+         <div class="container">
+            <div class="row">
+               <div class="col-md">
+                  <h2 style="padding-top: 20px; ">Highly Scaleable Image Manipulation API</h2>
+               </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+               <div class="col-md">
+                  <p>back-end development | JavaScript | Sharp npm module | Github | AWS Lambda 
+                  <p>
+               </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+               <div class="col-md portfolio-item">
+               </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+               <div class="col-md">
+                  <p>Link to GitHub repository: <a href="https://skincare-auntie.herokuapp.com/index.php" target ="blank">imageResizer</a></p>
+                  <p>Built in Node.js; deployed on AWS Lambda via Amazon API Gateway</p>
+                  <h3>Overview</h3>
+                  <p>While putting together my web development projects I kept running into issues regarding my images. Sometimes an image would  be the incorrect dimensions, needs cropping, or could use rotation to fit better on page. This created a need for me to create an image resizer that would load images quickly exactly as I want them to look. 
+                  </p>
+               </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+               <div class="col-md">
+                  <h3>Objectives</h3>
+                  <p>As I began the building process, I made this list of objectives to keep me on track:</p>
+                  <ul>
+                     <li>Needs to support image sizes from very large monitors to small mobile devices</li>
+                     <li>Performs mirroring for AB testing user conversion rates</li>
+                     <li>Since web traffic can spike very quickly, <b>we need scaleable infrastructure to support on demand image processing</b></li>
+                     <li>Need a caching layer for duplicate image requests</li>
+                  </ul>
+                  <h3>Process</h3>
+                  <p>Before any actual coding took place, I registered with AWS Lambda <a href="https://signin.aws.amazon.com/signin?client_id=signup&redirect_uri=https%3A%2F%2Fportal.aws.amazon.com%2Fbilling%2Fsignup%2Fresume&page=resolve">here</a>! Once my registration was locked and loaded I created my AWS lambda zip with `sharp` and `request` npm packages. <a href="http://sharp.dimens.io/en/stable/install/#aws-lambda">This</a> link will help you in the steps in getting set up! </p>
+                  <p><b>Writing the code:</b></p>
+                  <ul>
+                     <li>First stop, I chose an image library that works in with one of lambda's supported languages! I chose <a href="https://github.com/lovell/sharp">Sharp</a> as it was the easiest to navigate and it was widely used and celebrated on GitHub</li>
+                     <li>Then, I chose a url downloading library to simplify fetching images. I used <a href="https://github.com/request/request">Request</a> for the same reason as Sharp-easily to follow, versatile, well-regarded.</li>
+                     <li>Then, using Sharp I created an image transformation pipeline that will perform the transformation specified by the url parameters</li>
+                     <li>Finally, I returned the base 64 encoded image! Right now, my image resizer only can make .png files by taking in the URL but I'll expand to more formats soon!</li>
+                  </ul>
+                  <p><b>Deploying to Lambda gateway:</b></p>
+                  <ul>
+                     <li>I assigned an <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">AWS IAM </a>role that has cloudwatch enabled. <a href="https://aws.amazon.com/cloudwatch/">CloudWatch</a> is useful because it can automatically react to changes (so, changes to your image in this case) and monitor your log files.</li>
+                     <li>Then, I increased the memory limit to speed up API the response. More memory in this case means faster conversions.</li>
+                  </ul>
+                  <p><b>Configuring API gateway</b></p>
+                  <ul>
+                     <li>I converted the URL parameters to event.query parameters for the Integration Reqeust. I used Kenn Brodhagen's wonderful tutorial <a href="https://kennbrodhagen.net/2015/12/06/how-to-create-a-request-object-for-your-lambda-event-from-api-gateway/">here</a>. His step by step process was a life-saver in getting this set up. </li>
+                     <li>The response header needs to be set to image/png inside the API Gateway.</li>
+                     <li>The transformed images must be encoded in base64 to comply with Lambda's text only resposne.</li>
+                     <li>API caching was enabled since all requests to the api should have deterministic responses.</li>
+                  </ul>
+                  <p><b>Challenges:</b></p>
+                  <p>AWS Lambda doesn't have a good way for rapidly testing your code locally. It takes several minutes to rebuild, redeploy, and run tests that could all fail because of syntax error. The simplest way to test your code is by setting up a simple Express server is a quick way to debug logical coding. However, This doesn't emulate many of the API Gateway configurations though which can be quite confusing the first time you use them. There are some frameworks that are attempting to bridge the gap between local development and a full serverless deployment. I will be evaluating them for any furture serverless projects.</p>
+               </div>
+            </div>
+            <div class="row">
+               <div class="cold-md">
+                  <h3>Results</h3>
+                  <p>Now I have a fast-loading, effective image manipulator that resizes, blurs, rotates, and crops .png files. <a href="try-image.html">Try here</a> to have a look yourself! </p>
+               </div>
+            </div>
+         </div>
+      </section>
+      <footer>
+         <div class="container footer">
+            <div class="row text-center">
+               <div class="col">
+                  <p class="bottom-nav"><a href="#">Back to top</a></p>
+               </div>
+            </div>
+            <div class="row text-center">
+               <div class="col">
+                  <p class="small credits">Coded by Maya Pasini</p>
+               </div>
+            </div>
+         </div>
+      </footer>
+   </body>
 </html>

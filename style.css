@@ -3,8 +3,8 @@
 	font-family: arial;
 }
 
-.btn {
-	background-color: rgb(255,255,255);
+.btn-li, .btn-git, .btn-email {
+	background-color: rgb(255,255,255);*/
 }
 
 .service-name {
@@ -18,4 +18,11 @@
 
 .portfolio-item-image {
 	border: 3px solid black; 
+}
+
+
+.btn-primary {
+  background-color: gray;
+  font: white; 
+  border: black;
 }
