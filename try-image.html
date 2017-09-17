@@ -18,11 +18,27 @@
 
   
   <body>
+    
+    <header class="header">
+      <div class="container">
+        <a href="index.html#portfolio" class="back-link"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Back to portfolio</a>
+      </div>
+      
+      <div style="padding-top: 20px" class="container">
+        <h1>Highly Scaleable Image Manipulation API</h1>
+      </div>
+    </header>
+    
     <div class="container">
+      <h3></h3>
+    </div>
+    
+    <div style="padding-top: 20px" class="container">
+      <div class="col-6"></div>
       <form onsubmit="changeImage(); return false;">
       <div class="form-group">
-        <label for="url">1. Enter your URL</label>
-        <input id="url" type="url" class="form-control" id="url" placeholder="URL" value="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
+        <label for="url">1. Copy and paste your own URL into the text box OR just play with the default URL provided by me!</label>
+        <input id="url" type="url" class="form-control" id="url" placeholder="URL" value="https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg">
       </div>
       <div class="form-group">
         <label for="rotate">2. Rotate your image (optional) </label>
@@ -44,13 +60,17 @@
       </div>
       <div class="form-group">
         <label for="resize">4. Resize your image</label>
-        Height: <input id="resizeHeight"  type="text" size="2" value="100"> x
-        Width: <input id="resizeWidth"   type="text" size="2" value="100"> px 
+        Height: <input id="resizeHeight"  type="text" size="4" value="100"> x
+        Width: <input id="resizeWidth"   type="text" size="4  " value="100"> px 
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
       </form>
       
-      <img id="theImage" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
+    <p><b>Output: New image and corresponding URL</b></p>
+      
+    <p id="manipulatedURL"></p>
+      
+      <img id="theImage" src="https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg">
     </div>
     
     
@@ -76,6 +96,8 @@
         var manipulatedUrl = "https://lm318laof5.execute-api.us-east-1.amazonaws.com/prod/imagemanipulation?" + query  
         
         $("#theImage").attr("src", manipulatedUrl); 
+        
+        $("#manipulatedURL").text(manipulatedUrl);
         
         console.log(url, rotate, blur, resizeHeight, resizeWidth);
       }
