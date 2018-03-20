@@ -1,10 +1,27 @@
 
-.body {
-	font-family: arial;
+body {
+  font-family: monospace;
+  background-color: #DDDDDD;
+}
+
+.navbar {
+  background-color: black;
+}
+
+#nav a {
+  color: lime;
+}
+
+#nav a:hover {
+  text-decoration: underline;
+}
+
+h2,h3,h5, p {
+  color: #1C1C1C;
 }
 
 .btn-li, .btn-git, .btn-email {
-	background-color: rgb(255,255,255);*/
+	background-color: #DDDDDD;*/
 }
 
 .service-name {
@@ -22,7 +39,7 @@
 
 
 .btn-primary {
-  background-color: gray;
-  font: white; 
+  background-color: #FA7921;
+  font: #F07014; 
   border: black;
 }

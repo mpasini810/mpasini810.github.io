@@ -34,7 +34,7 @@
 <body>
 
 
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded" id="nav">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -42,26 +42,26 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#what-i-do">What I do <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#what-i-do"><h4>What I do</h4><span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#portfolio">Portfolio</a>
+        <a class="nav-link" href="#portfolio"><h4>Portfolio</h4></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#client-testimonials">Client testimonials</a>
+        <a class="nav-link" href="#client-testimonials"><h4>Client testimonials</h4></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#resume">Resume</a>
+        <a class="nav-link" href="#resume"><h4>Resume</h4></a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="#contact">Contact</a>
+        <a class="nav-link" href="#contact"><h4>Contact</h4></a>
       </li>
         </div>
       
     </ul>
   </div>
 </nav>
-
+  <div class="main-container">
     <div class="container">
         <div class="row text-center">
             <div class="col-12">
@@ -77,38 +77,38 @@
 				<h3 style="padding-bottom: 25px;">My services include:</h3>
         </div>
 
+        <div class="row text-center">
+        </div>
         <br>
         <div class="col-sm-12 col-md-6 col-lg-3">
         <img src="images/code.png" height="100px" width="100px">
-        <p class="service-name">web development</p>
-        <p class="service-description">I will design and deploy an accessible, responsive, and eye-catching website for you or your company's needs. Experience includes skincare blogging platforms, gym advertisements, and public service announcements for non-profits.
-        </p>
+        <h4 class="service-name">web development</h4>
+        <h5 class="service-description">I will design and deploy an accessible, responsive, and eye-catching website for you or your company's needs. Experience includes skincare blogging platforms, gym advertisements, and public service announcements for non-profits.
+        </h5>
         </div>
 
         <div class="col-sm-12 col-md-6 col-lg-3">
         <img src="images/database.png" height="100px" width="100px">
-        <p class="service-name">database engineering</p>
-        <p class="service-description">I will create a series of secure and organized relational databases for you to store all of your important data. Both business and personal uses in my area of expertise. 
-        </p>
+        <h4 class="service-name">database engineering</h4>
+        <h5 class="service-description">I will create a series of secure and organized relational databases for you to store all of your important data. Both business and personal uses in my area of expertise. 
+        </h5>
         </div>
 
         <div class="col-sm-12 col-md-6 col-lg-3">
         <img src="images/translate.png" height="100px" width="100px">
-        <p class="service-name">translation</p>
-        <p class="service-description">I will translate and localize text from Japanese to English and English to Japanese. <br>My areas of expertise include legal and medical documents as well as advertisements and gaming related content.
-        </p>
+        <h4 class="service-name">translation</h4>
+        <h5 class="service-description">I will translate and localize text from Japanese to English and English to Japanese. <br>My areas of expertise include legal and medical documents as well as advertisements and gaming related content.
+        </h5>
         </div>
 
         <div class="col-sm-12 col-md-6 col-lg-3">
         <img src="images/interpret.png" height="100px" width="100px">
-        <p class="service-name">interpretation</p>
-        <p class="service-description">I will accompany you and/or your company to your place of need and provide simultaneous interpretations between Japanese and English. <br> Previous interpreter experiences include court accompanyment, hospital visitation, coroporate meetings, and cultural festivals.
-        </p>
+        <h4 class="service-name">interpretation</h4>
+        <h5 class="service-description">I will accompany you and/or your company to your place of need and provide simultaneous interpretations between Japanese and English. <br> Previous interpreter experiences include court accompanyment, hospital visitation, coroporate meetings, and cultural festivals.
+        </h5>
         </div>
     </div>
-        
-        </div>
-    
+   
     <hr> 
     `<div class="container">
         <div class="row text-center">
@@ -146,10 +146,11 @@
       <p class="project-link"><a href="image-resizer-case-study.html">View case study</a>&nbsp;|&nbsp;<a href="https://github.com/mpasini810/imageResizer">View code </a>|<a href="try-image.html">Try it yourself</a></p>
       </div>
 		 
-		  <div class="col-md-6 portfolio-item">
-      <img class="img-fluid portfolio-item-image" src="images/snake.png"><h3 class="project-title">snake game in React/Redux</h3>
-        <p ><i>code and case study coming soon!</i></p>
-      </div> 
+      <div class="col-md-6 portfolio-item">
+        <img class="img-fluid portfolio-item-image" src="images/wwc.png"><h3 class="project-title">My highlight on the Women Who Code blog</h3>
+        <p class="project-link"><a href="https://www.womenwhocode.com/blog/ww-code-maker-bytes-2018-02-12">Link to article</a>&nbsp;|&nbsp;<a href="wwc.html">Read about my contribution</a></p>
+        </div>
+	 
     </div>
   </div>
 </section>
@@ -164,16 +165,16 @@
          
          <div class="container testimonials">
             <div class="row text-center">
-                <p class="col-12">Maya's work on Skincare Auntie is simple, clear, and pleasing to the eye. Intended for people of all ages and levels of skincare knowledge, but primarily for those in the author's age group and who have an existing interest in skincare, the minimalistic layout makes it easy for visitors of all kinds to browse the website and find the information they are seeking. The top navigation is straightforward and presents the different sections of information in a logical order that make sense even if read out of sequence, and the archive links on the side make it easy for visitors to view older posts. The website's color scheme and layout are clean and modern without being too austere, and the fun header logo signals both the author's youth and intended audience while appealing to a broader crowd. The font is easily legible, and all links and post displays are fully functional. The website's outgoing links are easily accessible as well. Overall, Skincare Auntie is a pleasure to use and utilizes the elements of good web design that I appreciate in many of my favorite websites.</p>
-                <p><cite>Cristy Yeung, skincare expert and blogger</cite></p>
+                <h5 class="col-12">Maya's work on Skincare Auntie is simple, clear, and pleasing to the eye. Intended for people of all ages and levels of skincare knowledge, but primarily for those in the author's age group and who have an existing interest in skincare, the minimalistic layout makes it easy for visitors of all kinds to browse the website and find the information they are seeking. The top navigation is straightforward and presents the different sections of information in a logical order that make sense even if read out of sequence, and the archive links on the side make it easy for visitors to view older posts. The website's color scheme and layout are clean and modern without being too austere, and the fun header logo signals both the author's youth and intended audience while appealing to a broader crowd. The font is easily legible, and all links and post displays are fully functional. The website's outgoing links are easily accessible as well. Overall, Skincare Auntie is a pleasure to use and utilizes the elements of good web design that I appreciate in many of my favorite websites.</h5>
+                <h5><cite>Cristy Yeung, skincare expert and blogger</cite></h5>
             </div>
             <div class="row text-center">
-                 <p class="col-12">Maya is always timely whenever I need assistance with a translation (usually a Japanese recipe or reading an email from a friend overseas); she is thorough and precise and will always walk me through parts I don’t understand. I highly recommend Maya to help you with any kind of correspondence as she is fluent in both business and casual Japanese!</p>
-                <p><cite>Wendy Xu, Illustrator and comics artist</cite></p>
+                 <h5 class="col-12">Maya is always timely whenever I need assistance with a translation (usually a Japanese recipe or reading an email from a friend overseas); she is thorough and precise and will always walk me through parts I don’t understand. I highly recommend Maya to help you with any kind of correspondence as she is fluent in both business and casual Japanese!</h5>
+                <h5><cite>Wendy Xu, Illustrator and comics artist</cite></h5>
              </div>
             <div class="row text-center">
-                <p class="col-12">Maya frequently translates American financial and legal jargon into Japanese so I easily understand. She also helps me communicate with our lawyers and our bank persons. Her work has been an absolute life-saver!</p>
-                <p><cite>Yoshizo Saruwatari, Treasurer</cite></p>
+                <h5 class="col-12">Maya frequently translates American financial and legal jargon into Japanese so I easily understand. She also helps me communicate with our lawyers and our bank persons. Her work has been an absolute life-saver!</h5>
+                <h5><cite>Yoshizo Saruwatari, Treasurer</cite></h5>
              </div>
          </div>
 
@@ -219,7 +220,7 @@
     </div>
   </div>
 </footer>
-
+</div>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
