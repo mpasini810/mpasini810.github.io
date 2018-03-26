@@ -16,17 +16,62 @@
       <link rel="stylesheet" href="style.css">
       <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700|Work+Sans:400,700" rel="stylesheet">
    </head>
-   <body>
+  <body>
       <header class="header">
          <div class="container">
             <a href="index.html#portfolio" class="back-link"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Back to portfolio</a>
          </div>
       </header>
-      <body>
-        <div>
-          <h1>COMING SOON!</h1>
-        </div>
-      </body>
+      <section class="project-page">
+         <div class="container">
+            <div class="row">
+               <div class="col-md">
+                  <h2 style="padding-top: 20px; ">Women Who Code Contribution</h2>
+               </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+               <div class="col-md">
+                  <p>back-end development | Ruby on Rails | Github 
+                  <p>
+               </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+               <div class="col-md portfolio-item">
+               </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+               <div class="col-md">
+                  <h3>Issue</h3>
+                  <p>When creating a profile, the forms don't ask for a user's location. This is helpful information to have since we may not have a network in their city and still want to add value to their lives in some other way.</p>
+                  <h3>Resolution</h3>
+                  <p>Added location input on the edit profile page that is auto-completed by Google geocoding</p>
+                  <p><b>Challenges along the way:</b></p>
+                  <ul>
+                     <li>Needing to edit the database models to add new fields for latitude, longitude, and address as well as setup Google API key configuration for the project as well as register an account for my own development.</li>
+                     <li>Deciding between continuing to use the jQuery library for geolocation used elsewhere in the application vs going along with the migration to React but have now two different methods for location dropdowns.</li>
+                     <li>Figuring out which fields should an administrator of the site have the ability to edit for a user.</li>
+                     <li>Mocking the geocoding when running integration tests so that we don't call a third party API when testing.</li>
+                  </ul>
+               </div>
+            </div>
+            <div class="row">
+               <div class="cold-md">
+                  <h3>Results</h3>
+                  <p>Now no matter where a user may be located, they are able to find a Women Who Code community.</p>
+               </div>
+            </div>
+         </div>
+      </section>
+      <footer>
+         <div class="container footer">
+            <div class="row text-center">
+               <div class="col">
+                  <p class="bottom-nav"><a href="#">Back to top</a></p>
+               </div>
+            </div>
             <div class="row text-center">
                <div class="col">
                   <p class="small credits">Coded by Maya Pasini</p>
@@ -35,4 +80,6 @@
          </div>
       </footer>
    </body>
+     
+
 </html>
